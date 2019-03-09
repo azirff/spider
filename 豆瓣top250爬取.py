@@ -15,7 +15,6 @@ from bs4 import BeautifulSoup
 def cc(newurl):
     res=requests.get(newurl,headers=header,verify=False)
     respond = etree.HTML(res.text)
-    print(res.text)
     hr=respond.xpath('//div[@class="item"]/div[@class="info"]/div[@class="hd"]/a/@href')
     return hr
 def vv(href):
