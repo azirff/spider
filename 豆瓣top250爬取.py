@@ -4,6 +4,8 @@ from os.path import join
 import sqlite3
 import pandas
 import lxml.html
+import urllib3
+
 etree=lxml.html.etree
 import os
 import requests
@@ -37,6 +39,8 @@ def vv(href):
         #取得所有内容并添加到字典
         return result
 if __name__ == '__main__':
+    urllib3.disable_warnings()
+    #取消警告
     url = 'https://movie.douban.com/top250?start={}&filter='
     header={
         'User-Agent':'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:65.0) Gecko/20100101 Firefox/65.0',
