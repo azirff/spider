@@ -14,8 +14,8 @@ import requests
 from bs4 import BeautifulSoup
 def cc(newurl):
     res=requests.get(newurl,headers=header,verify=False)
-    #使用requests访问newurl，添加verify=False是因为我的requests版本过高有的网页无法
-    #访问
+    #使用requests访问newurl，添加verify=False是因为在打开fiddler抓包时要进行ssl验证
+    #添加verify=False可避免此问题
     respond = etree.HTML(res.text)
     hr=respond.xpath('//div[@class="item"]/div[@class="info"]/div[@class="hd"]/a/@href')
     #解析网页并获取到该页中的所有链接
