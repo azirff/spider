@@ -68,7 +68,7 @@ class JdSpider(scrapy.Spider):
                 i = i + 1
                 time.sleep(1)
                 yield item
-                #返回item
+                #返回items
         except TimeoutException as e:
             print('超时')
             self.browser.execute_script('window.stop()')
